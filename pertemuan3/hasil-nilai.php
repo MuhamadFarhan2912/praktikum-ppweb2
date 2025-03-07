@@ -1,3 +1,11 @@
+<?php
+if (!isset($_POST['nama'])){
+    echo ' <script>alert("anda harus mengisi form terlebih dahulu!")</script>
+<meta http-equiv="refresh" content="0; url=form_nilai.php">';
+}
+?>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,8 +14,8 @@
     <title>Hasil Nilai Mahasiswa</title>
 </head>
 <body>
-    <table>
-        <tr>
+    <table class="container">
+        <tr class="">
             <td>Nama</td>
             <td>:</td>
             <td><?= $_POST['nama']?></td>
@@ -60,18 +68,44 @@
                 $total= $tugas + $uts + $uas;
 
                 if ($total <= 35) {
-                    echo "E";
+                    $pred ="E";
                 } elseif ($total <= 55) {
-                    echo "D";
+                    $pred ="D";
                 } elseif ($total <= 69) {
-                    echo "C";
+                    $pred ="C";
                 } elseif ($total <= 84) {
-                    echo "B";
+                    $pred ="B";
                 } elseif ($total <= 100) {
-                    echo "A";
+                    $pred ="A";
                 } else {
-                    echo "Tidak Diketahui";
-                } 
+                    $pred ="Tidak Diketahui";
+                }
+                echo $pred; 
+                ?>
+            </td>
+        </tr>
+        <tr>
+            <td>Keterangan</td>
+            <td>:</td>
+            <td>
+                <?php
+                switch ($pred) {
+                    
+                    case 'A':
+                        echo "sangat baik";
+                        break;
+                    case 'B':
+                        echo "baik";
+                    case 'C':
+                        echo "cukup";
+                    case 'D':
+                        echo "dungu";
+                    case 'E':
+                        echo "burik";
+                    default:
+                    echo "TIDAK DIKETAHUI";
+                        break;
+                }
                 ?>
             </td>
         </tr>
