@@ -5,6 +5,7 @@ if (!isset($_POST['nama'])){
 }
 ?>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,8 +14,12 @@ if (!isset($_POST['nama'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hasil Nilai Mahasiswa</title>
 </head>
-<body>
-    <table class="container">
+<body >
+    <div class="container mt-4">
+    <div class="card">
+    <div class="card-header bg-primary text-white text-center"> Hasil Nilai Mahasiswa</div>
+    <div class="card-body">
+    <table class="table table-bordered container">
         <tr class="">
             <td>Nama</td>
             <td>:</td>
@@ -110,5 +115,8 @@ if (!isset($_POST['nama'])){
             </td>
         </tr>
     </table>
+ </div>
+ </div>
+ </div>
 </body>
 </html>
