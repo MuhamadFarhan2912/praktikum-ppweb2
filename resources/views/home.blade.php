@@ -10,17 +10,22 @@
 
   <div class="w-[50%] mx-auto py-10">
     <!-- Textarea and Button -->
+    @if(session('success'))
+    <div class="bg-green-500 text-white px-4 py-3 rounded mb-4">
+      <strong>Success!</strong> {{ session('success') }}
+  </div>
+    @endif
     <div class="bg-white p-6 rounded-xl shadow mb-8">
-      <textarea
+      <form method="POST" action="{{ url('/post') }}">
+        <textarea name="content"
         class="w-full border border-gray-300 rounded-lg p-4 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
         rows="4"
-        placeholder="What's on your mind?"
-      ></textarea>
-      <div class="text-right mt-4">
-        <button class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition">
-          Cuit
-        </button>
-      </div>
+        placeholder="What's on your mind?"></textarea>
+        <div class="text-right mt-4">
+          <input type="hidden" name="_token" value="{{ csrf_token() }}">
+          <input type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition" value="Cuit" />
+        </div>
+      </form>
     </div>
 
     <!-- Post Cards -->
