@@ -4,7 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CuitController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () { return view('home'); })->middleware('auth');
+Route::get('/', [CuitController::class, 'index'])->middleware('auth');
 Route::get('/login', function() { return view('login'); })->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/register', function() { return view('register'); })->name('register');
